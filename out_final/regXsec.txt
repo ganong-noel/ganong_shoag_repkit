@@ -1,0 +1,428 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	F20.dliInc	F20.dliInc	F20.dliInc	F20.dliInc	dliInc	dliInc
+						
+o._Iyear_1941	-	-	-	-		
+						
+o._Iyear_1942	-	-	-	-		
+						
+o._Iyear_1943	-	-	-	-		
+						
+o._Iyear_1944	-	-	-	-		
+						
+o._Iyear_1945	-	-	-	-		
+						
+o._Iyear_1946	-	-	-	-		
+						
+o._Iyear_1947	-	-	-	-		
+						
+o._Iyear_1948	-	-	-	-		
+						
+o._Iyear_1949	-	-	-	-		
+						
+o._Iyear_1950	-	-	-	-	-	-
+						
+o._Iyear_1951	-	-	-	-		
+						
+o._Iyear_1952	-	-	-	-		
+						
+o._Iyear_1953	-	-	-	-		
+						
+o._Iyear_1954	-	-	-	-		
+						
+o._Iyear_1955	-	-	-	-		
+						
+o._Iyear_1956	-	-	-	-		
+						
+o._Iyear_1957	-	-	-	-		
+						
+o._Iyear_1958	-	-	-	-		
+						
+o._Iyear_1959	-	-	-	-		
+						
+o._Iyear_1960	-	-	-	-	-	-
+						
+o._Iyear_1961	-	-	-	-		
+						
+o._Iyear_1962	-	-	-	-		
+						
+o._Iyear_1963	-	-	-	-		
+						
+o._Iyear_1964	-	-	-	-		
+						
+o._Iyear_1965	-	-	-	-		
+						
+o._Iyear_1966	-	-	-	-		
+						
+o._Iyear_1967	-	-	-	-		
+						
+o._Iyear_1968	-	-	-	-		
+						
+o._Iyear_1969	-	-	-	-		
+						
+o._Iyear_1970	-	-	-	-	-	-
+						
+o._Iyear_1971	-	-	-	-		
+						
+o._Iyear_1972	-	-	-	-		
+						
+o._Iyear_1973	-	-	-	-		
+						
+o._Iyear_1974	-	-	-	-		
+						
+o._Iyear_1975	-	-	-	-		
+						
+o._Iyear_1976	-	-	-	-		
+						
+o._Iyear_1977	-	-	-	-		
+						
+o._Iyear_1978	-	-	-	-		
+						
+o._Iyear_1979	-	-	-	-		
+						
+o._Iyear_1980	-	-	-	-	-	-
+						
+o._Iyear_1981	-	-	-	-		
+						
+o._Iyear_1982	-	-	-	-		
+						
+o._Iyear_1983	-	-	-	-		
+						
+o._Iyear_1984	-	-	-	-		
+						
+o._Iyear_1985	-	-	-	-		
+						
+o._Iyear_1986	-	-	-	-		
+						
+o._Iyear_1987	-	-	-	-		
+						
+o._Iyear_1988	-	-	-	-		
+						
+o._Iyear_1989	-	-	-	-		
+						
+o._Iyear_1990	-	-	-	-	-	-
+						
+o._Iyear_1991	-	-	-	-		
+						
+o._Iyear_1992	-	-	-	-		
+						
+o._Iyear_1993	-	-	-	-		
+						
+o._Iyear_1994	-	-	-	-		
+						
+o._Iyear_1995	-	-	-	-		
+						
+o._Iyear_1996	-	-	-	-		
+						
+o._Iyear_1997	-	-	-	-		
+						
+o._Iyear_1998	-	-	-	-		
+						
+o._Iyear_1999	-	-	-	-		
+						
+o._Iyear_2000	-	-	-	-	-	-
+						
+o._Iyear_2001	-	-	-	-		
+						
+o._Iyear_2002	-	-	-	-		
+						
+o._Iyear_2003	-	-	-	-		
+						
+o._Iyear_2004	-	-	-	-		
+						
+o._Iyear_2005	-	-	-	-		
+						
+o._Iyear_2006	-	-	-	-		
+						
+o._Iyear_2007	-	-	-	-		
+						
+o._Iyear_2008	-	-	-	-		
+						
+o._Iyear_2009	-	-	-	-		
+						
+o._Iyear_2010	-	-	-	-	-	-
+						
+roll05	-4.03					
+	(3.22)					
+_IyeaXrol_1941	-0.06		0.18			
+	(0.11)		(0.12)			
+_IyeaXrol_1942	0.19		0.32			
+	(0.22)		(0.20)			
+_IyeaXrol_1943	0.20		0.57**			
+	(0.29)		(0.23)			
+_IyeaXrol_1944	0.41		0.68**			
+	(0.30)		(0.26)			
+_IyeaXrol_1945	0.55*		0.66**			
+	(0.28)		(0.26)			
+_IyeaXrol_1946	0.43		0.61**			
+	(0.26)		(0.24)			
+_IyeaXrol_1947	0.38		0.76***			
+	(0.27)		(0.25)			
+_IyeaXrol_1948	0.45		0.90***			
+	(0.31)		(0.28)			
+_IyeaXrol_1949	0.49*		0.83***			
+	(0.26)		(0.23)			
+_IyeaXrol_1950	0.32		0.67***			
+	(0.24)		(0.22)			
+_IyeaXrol_1951	0.25		0.60***			
+	(0.24)		(0.22)			
+_IyeaXrol_1952	0.31		0.46*			
+	(0.24)		(0.23)			
+_IyeaXrol_1953	0.23		0.24			
+	(0.22)		(0.26)			
+_IyeaXrol_1954	0.26		0.24			
+	(0.20)		(0.23)			
+_IyeaXrol_1955	0.20		0.14			
+	(0.20)		(0.21)			
+_IyeaXrol_1956	0.15		0.13			
+	(0.21)		(0.20)			
+_IyeaXrol_1957	0.12		0.14			
+	(0.23)		(0.22)			
+_IyeaXrol_1958	0.19		0.23			
+	(0.23)		(0.21)			
+_IyeaXrol_1959	0.18		0.16			
+	(0.22)		(0.21)			
+_IyeaXrol_1960	0.21		0.32			
+	(0.24)		(0.23)			
+_IyeaXrol_1961	0.12		0.21			
+	(0.24)		(0.25)			
+_IyeaXrol_1962	0.12		0.27			
+	(0.27)		(0.26)			
+_IyeaXrol_1963	0.22		0.44			
+	(0.26)		(0.26)			
+_IyeaXrol_1964	0.22		0.42			
+	(0.28)		(0.27)			
+_IyeaXrol_1965	0.20		0.48			
+	(0.31)		(0.31)			
+o._IyeaXrol_1966	-		-			
+						
+o._IyeaXrol_1967	-		-			
+						
+o._IyeaXrol_1968	-		-			
+						
+o._IyeaXrol_1969	-		-			
+						
+o._IyeaXrol_1970	-		-			
+						
+o._IyeaXrol_1971	-		-			
+						
+o._IyeaXrol_1972	-		-			
+						
+o._IyeaXrol_1973	-		-			
+						
+o._IyeaXrol_1974	-		-			
+						
+o._IyeaXrol_1975	-		-			
+						
+o._IyeaXrol_1976	-		-			
+						
+o._IyeaXrol_1977	-		-			
+						
+o._IyeaXrol_1978	-		-			
+						
+o._IyeaXrol_1979	-		-			
+						
+o._IyeaXrol_1980	-		-			
+						
+o._IyeaXrol_1981	-		-			
+						
+o._IyeaXrol_1982	-		-			
+						
+o._IyeaXrol_1983	-		-			
+						
+o._IyeaXrol_1984	-		-			
+						
+o._IyeaXrol_1985	-		-			
+						
+o._IyeaXrol_1986	-		-			
+						
+o._IyeaXrol_1987	-		-			
+						
+o._IyeaXrol_1988	-		-			
+						
+o._IyeaXrol_1989	-		-	-		
+						
+o._IyeaXrol_1990	-		-			
+						
+o._IyeaXrol_1991	-	-	-	-		
+						
+o._IyeaXrol_1992	-	-	-	-		
+						
+o._IyeaXrol_1993	-	-	-	-		
+						
+o._IyeaXrol_1994	-	-	-	-		
+						
+o._IyeaXrol_1995	-	-	-	-		
+						
+o._IyeaXrol_1996	-	-	-	-		
+						
+o._IyeaXrol_1997	-	-	-	-		
+						
+o._IyeaXrol_1998	-	-	-	-		
+						
+o._IyeaXrol_1999	-	-	-	-		
+						
+o._IyeaXrol_2000	-	-	-	-		
+						
+o._IyeaXrol_2001	-	-	-	-		
+						
+o._IyeaXrol_2002	-	-	-	-		
+						
+o._IyeaXrol_2003	-	-	-	-		
+						
+o._IyeaXrol_2004	-	-	-	-		
+						
+o._IyeaXrol_2005	-	-	-	-		
+						
+o._IyeaXrol_2006	-	-	-	-		
+						
+o._IyeaXrol_2007	-	-	-	-		
+						
+o._IyeaXrol_2008	-	-	-	-		
+						
+o._IyeaXrol_2009	-	-	-	-		
+						
+o._IyeaXrol_2010	-	-	-	-		
+						
+liInc	-1.98***	-1.92***	-2.12***	-2.14***	-2.49***	-1.20***
+	(0.13)	(0.42)	(0.18)	(0.56)	(0.06)	(0.08)
+interroll05	0.37	2.18**				
+	(0.35)	(0.83)				
+o.roll05		-				
+						
+o._IyeaXrol_1941		-		-		
+						
+o._IyeaXrol_1942		-		-		
+						
+o._IyeaXrol_1943		-		-		
+						
+o._IyeaXrol_1944		-		-		
+						
+o._IyeaXrol_1945		-		-		
+						
+o._IyeaXrol_1946		-		-		
+						
+o._IyeaXrol_1947		-		-		
+						
+o._IyeaXrol_1948		-		-		
+						
+o._IyeaXrol_1949		-		-		
+						
+o._IyeaXrol_1950		-		-		
+						
+o._IyeaXrol_1951		-		-		
+						
+o._IyeaXrol_1952		-		-		
+						
+o._IyeaXrol_1953		-		-		
+						
+o._IyeaXrol_1954		-		-		
+						
+o._IyeaXrol_1955		-		-		
+						
+o._IyeaXrol_1956		-		-		
+						
+o._IyeaXrol_1957		-		-		
+						
+o._IyeaXrol_1958		-		-		
+						
+o._IyeaXrol_1959		-		-		
+						
+o._IyeaXrol_1960		-		-		
+						
+o._IyeaXrol_1961		-		-		
+						
+o._IyeaXrol_1962		-		-		
+						
+o._IyeaXrol_1963		-		-		
+						
+o._IyeaXrol_1964		-		-		
+						
+o._IyeaXrol_1965		-		-		
+						
+_IyeaXrol_1966		-21.83**		1.23**		
+		(8.25)		(0.48)		
+_IyeaXrol_1967		-21.76**		1.25**		
+		(8.28)		(0.47)		
+_IyeaXrol_1968		-21.71**		1.32***		
+		(8.28)		(0.47)		
+_IyeaXrol_1969		-21.70**		1.25***		
+		(8.34)		(0.41)		
+_IyeaXrol_1970		-21.73**		1.14***		
+		(8.35)		(0.38)		
+_IyeaXrol_1971		-21.72**		1.13***		
+		(8.36)		(0.37)		
+_IyeaXrol_1972		-21.87**		1.03***		
+		(8.39)		(0.35)		
+_IyeaXrol_1973		-21.93**		1.07***		
+		(8.41)		(0.36)		
+_IyeaXrol_1974		-21.95**		1.03***		
+		(8.41)		(0.35)		
+_IyeaXrol_1975		-21.87**		1.15***		
+		(8.40)		(0.37)		
+_IyeaXrol_1976		-21.92**		1.05***		
+		(8.43)		(0.33)		
+_IyeaXrol_1977		-21.96**		1.02***		
+		(8.45)		(0.32)		
+_IyeaXrol_1978		-21.95**		0.97***		
+		(8.48)		(0.32)		
+_IyeaXrol_1979		-21.89**		1.00***		
+		(8.49)		(0.30)		
+_IyeaXrol_1980		-21.86**		0.97***		
+		(8.47)		(0.30)		
+_IyeaXrol_1981		-21.75**		0.97***		
+		(8.47)		(0.29)		
+_IyeaXrol_1982		-21.76**		0.95***		
+		(8.49)		(0.28)		
+_IyeaXrol_1983		-21.86**		0.73***		
+		(8.53)		(0.22)		
+_IyeaXrol_1984		-21.93**		0.68***		
+		(8.57)		(0.18)		
+_IyeaXrol_1985		-22.10**		0.55***		
+		(8.58)		(0.15)		
+_IyeaXrol_1986		-22.19**		0.44***		
+		(8.60)		(0.14)		
+_IyeaXrol_1987		-22.28**		0.34***		
+		(8.61)		(0.11)		
+_IyeaXrol_1988		-22.43**		0.01		
+		(8.65)		(0.08)		
+_IyeaXrol_1989		-22.48**				
+		(8.67)				
+_IyeaXrol_1990		-22.39**		0.09**		
+		(8.66)		(0.04)		
+roll55			-3.18	-23.64**		
+			(3.04)	(9.38)		
+interroll55			0.30	2.27**		
+			(0.33)	(0.91)		
+UBinFive					1.90**	-7.74***
+					(0.82)	(1.86)
+_IyeaXUBi_1950					-0.21	
+					(0.14)	
+_IyeaXUBi_1960					-0.49**	
+					(0.21)	
+o._IyeaXUBi_1970					-	
+						
+o._IyeaXUBi_1980					-	
+						
+o._IyeaXUBi_1990					-	-
+						
+o._IyeaXUBi_2000					-	-
+						
+o._IyeaXUBi_2010					-	-
+						
+interactUBinFive					-0.11	0.76***
+					(0.12)	(0.18)
+o._IyeaXUBi_1950						-
+						
+o._IyeaXUBi_1960						-
+						
+_IyeaXUBi_1970						1.34***
+						(0.25)
+_IyeaXUBi_1980						0.73***
+						(0.11)
+Constant	21.48***	21.00***	22.62***	23.17***	25.83***	15.90***
+	(1.25)	(4.25)	(1.65)	(5.66)	(0.44)	(0.77)
+						
+Observations	1,248	1,200	1,248	1,200	8,413	9,244
+R-squared	0.84	0.44	0.84	0.45	0.72	0.91
+Robust standard errors in parentheses						
+*** p<0.01, ** p<0.05, * p<0.1						

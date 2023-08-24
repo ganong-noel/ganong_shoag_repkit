@@ -1,0 +1,13 @@
+	(1)	(2)	(3)	(4)	(5)
+	1	2	3	4	5
+VARIABLES	netMig	netMig	netMig	netMig	netMig
+					
+lincShared	0.611	0.611	0.617	0.585	0.475
+	(0.392)	(0.392)	(0.419)	(0.387)	(0.411)
+Constant	-5.875	-5.875	-5.951	-5.626	-4.527
+	(3.673)	(3.673)	(3.933)	(3.631)	(3.839)
+					
+Observations	466	466	466	466	465
+R-squared	0.014	0.014	0.017	0.014	0.012
+Robust standard errors in parentheses					
+*** p<0.01, ** p<0.05, * p<0.1					
