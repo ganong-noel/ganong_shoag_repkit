@@ -6,8 +6,58 @@ For questions and feedback, contact: ganong@uchicago.edu.
 
 This repository contains the replication code for the paper "Why Has Regional Income Convergence in the U.S. Declined?" by Peter Ganong and Daniel W. Shoag (2017). The code is structured to reproduce the figures and tables presented in the paper.
 
+
 ## Note
-This repository contains various files related to the Ganong Shoag Repkit project. Please note that some of these files are managed using Git LFS (These are large files storage over 100MB).
+This repository contains various files related to the Ganong Shoag Repkit project. Please note that some of these files are managed using Git LFS. These datasets are tracked using Git LFS (Large File Storage). Git LFS helps manage large files more efficiently, keeping the repository size manageable while still providing access to the necessary data.
+
+**Using Datasets Tracked with Git LFS**
+
+ 
+Here's how you can properly clone the repository and work with the datasets:
+
+1. **Clone the Repository**:
+   Clone the repository using the following command in your terminal:
+
+   ```
+   git clone <repository-url>
+   ```
+
+   Replace `<repository-url>` with the actual URL of the repository.
+
+2. **Install Git LFS**:
+   Make sure you have Git LFS installed on your system. If not, you can download and install it from the [Git LFS website](https://git-lfs.com/).
+
+3. **Navigate to the Repository Directory**:
+   After cloning the repository, navigate to the repository directory using the terminal:
+
+   ```
+   cd project-name
+   ```
+
+   Replace `project-name` with the name of your project directory.
+
+4. **Fetch Large Files**:
+   Run the following command to fetch the actual content of the large files tracked by Git LFS:
+
+   ```
+   git lfs pull
+   ```
+
+   This command downloads the content of the large files from the Git LFS server.
+
+5. **Checkout the Files**:
+   The large files are represented in the repository as pointers. To replace the pointers with the actual content, use the following command:
+
+   ```sh
+   git lfs checkout
+   ```
+
+   This command replaces the pointers with the actual data in your working directory. It downloads and fills in the real data into your working directory, so you can use the large files as you normally would.
+
+6. **Work with Datasets**:
+   You can now work with the datasets as you normally would. The large files should be available in their respective directories.
+
+Feel free to use these instructions as a guide for others to follow when working with your repository's large files tracked using Git LFS.
 
 ## Files Managed with Git LFS
 
@@ -16,23 +66,6 @@ The following files in this repository are managed using Git LFS to handle their
 - `journalist`
 - `src_data`
 - `work_final`
-
-This code uses Git LFS to prevent bloating the repository's commit history with large binary files. When you clone the repository, make sure to use the `git lfs pull` command to fetch the actual content of the files that uses git lfs.
-
-## Getting Started
-
-To get started with the Ganong Shoag Repkit project, follow these steps:
-
-1. Clone the repository using the following command:
-`git clone <repository_url>`
-
-2. Navigate to the repository directory:
-`cd project-name`
-
-3. Fetch the actual content o2f Git LFS files:
-`git lfs pull`
-
-4. Continue working on your code and make any needed adjustment, commit, and push as needed.
 
 # ORDER OF RUNNING SCRIPTS
 
