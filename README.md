@@ -55,9 +55,9 @@ Here's how you can properly clone the repository and work with the datasets:
    This command replaces the pointers with the actual data in your working directory. It downloads and fills in the real data into your working directory, so you can use the large files as you normally would.
 
 6. **Work with Datasets**:
-   You can now work with the datasets as you normally would. The large files should be available in their respective directories.
+   You can now work with the datasets. The large files should be available in their respective directories.
 
-Feel free to use these instructions as a guide for others to follow when working with your repository's large files tracked using Git LFS.
+
 
 ## Files Managed with Git LFS
 
