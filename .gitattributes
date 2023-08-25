@@ -1,3 +1,5 @@
 src_data/*.psd filter=lfs diff=lfs merge=lfs -text
 src_data/* filter=lfs diff=lfs merge=lfs -text
 work_final/* filter=lfs diff=lfs merge=lfs -text
+journalistalso/* filter=lfs diff=lfs merge=lfs -text
+journalist/* filter=lfs diff=lfs merge=lfs -text
