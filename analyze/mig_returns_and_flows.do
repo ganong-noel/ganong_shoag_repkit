@@ -64,6 +64,11 @@ title("Unskilled Coef: `coef' SE: `se'", size(medsmall));
 graph save  $work/realUnskill1940.gph, replace;
 #delimit cr;
 
+preserve 
+keep netMig lr skill basePop lincShared netMig
+outsheet using $out/Net_Migration_Flows_by_Skill_Group_Figure_4.csv, comma replace 
+restore
+
 gr combine $work/nomUnskill1940.gph $work/nomSkill1940.gph $work/realUnskill1940.gph $work/realSkill1940.gph, rows(2) cols(2) graphregion(fcolor(white)) xsize(6) ysize(5)
 gr export $out/borjas1940.eps, replace
 
@@ -135,6 +140,11 @@ ytitle("Net Migration")  lcolors(maroon) nodraw
 title("Unskilled Coef: `coef' SE: `se'", size(medsmall));
 graph save  $work/realUnskill2000.gph, replace;
 #delimit cr;
+
+preserve
+keep netMig lr skill basePop lincShared
+outsheet using $out/Net_Migration_Flows_by_Skill_Group_Figure_5.csv, comma replace
+restore
 
 gr combine $work/nomUnskill2000.gph $work/nomSkill2000.gph $work/realUnskill2000.gph $work/realSkill2000.gph, rows(2) cols(2) graphregion(fcolor(white)) xsize(6) ysize(5)
 gr export $out/borjas2000.eps, replace
@@ -256,6 +266,10 @@ subtitle(Effect of $1 of Statewide Income on Skill-Specific Inc Net of Housing);
 gr export $out/migReturn.eps, replace;
 #delimit cr;
 
+preserve
+keep year coefUnskill coefSkill unskillHigh unskillLow skillHigh skillLow yearJit
+outsheet using $out/Returns_to_Migration_Figure_3.csv, comma replace 
+restore
 
 
 

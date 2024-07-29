@@ -73,7 +73,6 @@ saving($work/nomConvergePop.gph, replace) ;
 gr export $out/nomConvergePop.eps, replace ;
 
 
-
 ***Price graphs***;
 scatter coef6 year , mcolor(edkblue) c(l) ||
 scatter coef6 year if year == 1960, mcolor(maroon) msize(huge) ||
@@ -84,18 +83,31 @@ legend(off) ylabel(1 1.5 2) $all
 saving($work/priceCoef.gph, replace) ;
 gr export $out/priceCoef.eps, replace ;
 
+#delimit cr
 
-restore;
+mat coef1 = coef[1..., 1]
+mat coef2 = coef[1..., 2]
+mat coef6 = coef[1..., 6]
+
+*Combine the extracted columns into a new matrix and convert the matrix into a dataset
+matrix f_coef = coef1, coef2, coef6
+svmat f_coef, names(colnames)
+
+
+keep coef1 coef2 coef6 year
+outsheet using $out/Convergence_and_Directed_Migration_Rates_Over_Time_Figure_1.csv, comma replace
+outsheet using $out/Timeseries_of_Coefs_Figure_2.csv, comma replace,
+
+restore
+
 
 **************
 *CONSTRUCT SINGLE-YEAR GRAPHS
 **************;
 
-
-
 #delimit; 
-local coef60 = substr(string(coef[14,1]),1,5);
-local se60 = substr(string(se[14,1]),1,3);
+**local coef60 = substr(string(coef[14,1]),1,5);
+**local se60 = substr(string(se[14,1]),1,3);
 scatter dliInc lagliInc if year == 1960, mlabel(statea)  msymbol(i)
 || lfit dliInc lagliInc if year == 1960, lcolor(maroon) 
 ytitle("Annual Income Growth Rate, 1940-1960")
@@ -105,8 +117,8 @@ legend(off) ylabel(1 3 5, nogrid) xlabel(#3) $all
 saving($work/inc1960.gph, replace) nodraw;
 
 #delimit; 
-local coef10 = substr(string(coef[64,1]),1,4);
-local se10 = substr(string(se[64,1]),1,3);
+**local coef10 = substr(string(coef[64,1]),1,4);
+**local se10 = substr(string(se[64,1]),1,3);
 scatter dliInc lagliInc if year == 2010, mlabel(statea) msymbol(i)
 || lfit dliInc lagliInc if year == 2010, lcolor(purple) 
 ytitle("Annual Income Growth Rate, 1990-2010")
@@ -118,11 +130,17 @@ ysc(r(0 4)) xlabel(10 10.4 10.8, nogrid ) ylabel(#3 )
 #delimit;
 gr combine $work/inc1960.gph $work/inc2010.gph, $allCombine xsize(5.5) ysize(3.5);
 gr export $out/inc.eps, replace;
+#delimit cr
+
+preserve
+keep dliInc lagliInc year
+outsheet using $out/Convergence_1940-1960_&_1990-2010_Figure_1.csv, comma replace
+restore
 
 
 #delimit; 
-local coef60 = substr(string(coef[14,2]),1,4);
-local se60 = substr(string(se[14,2]),1,3);
+**local coef60 = substr(string(coef[14,2]),1,4);
+**local se60 = substr(string(se[14,2]),1,3);
 scatter dlpop lagliInc if year == 1960, mlabel(statea) msymbol(i)
 || lfit dlpop lagliInc if year == 1960,  lcolor(maroon) 
 ytitle("Annual Population Growth Rate, 1940-1960")
@@ -132,8 +150,8 @@ subtitle("Migration 1940-1960, Coef: `coef60' SE: `se60'")
  saving($work/pop1960.gph, replace) nodraw;
 
 #delimit; 
-local coef10 = substr(string(coef[64,2]),1,4);
-local se10 = substr(string(se[64,2]),1,3);
+**local coef10 = substr(string(coef[64,2]),1,4);
+**local se10 = substr(string(se[64,2]),1,3);
 scatter dlpop lagliInc if year == 2010, mlabel(statea) msymbol(i)
 || lfit dlpop lagliInc if year == 2010,  lcolor(purple) 
 ytitle("Annual Population Growth Rate, 1990-2010")
@@ -146,12 +164,17 @@ saving($work/pop2010.gph, replace) nodraw;
 #delimit;
 gr combine $work/pop1960.gph $work/pop2010.gph,  $allCombine xsize(5.5) ysize(3.5);
 gr export $out/popYears.eps, replace;
+#delimit cr
 
+preserve
+keep dlpop lagliInc year
+outsheet using $out/Migration_1940-1960_&_1990-2010_Figure_1.csv, comma replace
+restore
 
 
 #delimit; 
-local coef60 = substr(string(coef[14,6]),1,3);
-local se60 = substr(string(se[14,6]),1,3);
+**local coef60 = substr(string(coef[14,6]),1,3);
+**local se60 = substr(string(se[14,6]),1,3);
 scatter lvalue liInc if year == 1960, mlabel(statea) msymbol(i)
 || lfit lvalue liInc if year == 1960, lcolor(maroon) 
 ytitle("Log Housing Value, 1960", size(large))
@@ -174,7 +197,12 @@ saving($work/price2010.gph, replace) nodraw;
 #delimit;
 gr combine $work/price1960.gph $work/price2010.gph,  $allCombine xsize(5.5) ysize(3.5);
 gr export $out/price.eps, replace;
+#delimit cr 
 
+preserve
+keep lvalue liInc year
+outsheet using $out/Coef_&_SE_Figure_2.csv, comma replace
+restore
 
 
 
