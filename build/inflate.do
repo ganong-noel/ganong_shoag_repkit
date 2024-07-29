@@ -5,6 +5,7 @@
 ****************
 *use data from historical statistics, 1880-2003
 tempfile t 
+display "Path to priceIndex.csv: $src/priceIndex.csv"
 insheet using $src/priceIndex.csv, comma clear
 keep v1 v2
 drop if _n <= 110
