@@ -284,7 +284,7 @@ legend(order(3 "Low Reg" 4 "High Reg") ring(0) pos(11) region(lstyle(none)) cols
 xtitle("Log Income Per Cap, 1980", size(large)) graphregion(fcolor(white))
 saving($work/incWest2010.gph, replace) nodraw;
 
-
+#delimit cr;
 
 **************
 *CONSTRUCT ROLLING COEFS AND SIGMA CONVERGENCE
@@ -314,38 +314,6 @@ local coef7 coef[*, 7]
 local coef5 coef[*, 5]
 local coef4 coef[*, 4]
 
-* Scatter Plot 1: Convergence of Coefficients by Regulation Level
-scatter `coef8' year if year >= 1960 , mcolor(maroon)  m(D) ///
-    || scatter `coef7' year if year >= 1960 & year <= 2010, mcolor(edkblue) ///
-    xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
-    ytitle("Convergence for 20-Year Windows at Annual Rate") ///
-    legend(order(1 "Coef High Reg States" 2 "Coef Low Reg States") ///
-    ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
-    subtitle("Split by Land Use Instrument") graphregion(fcolor(white)) ///
-    saving($work/nomConvergeSplitRegs.gph, replace)  nodraw;
-
-* Scatter Plot 2: Convergence of Coefficients by Housing Supply Elasticity
-scatter `coef5' year if year >= 1950, mcolor(maroon)  m(D) ///
-    || scatter `coef4' year if year >= 1950, mcolor(edkblue) ///
-    xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
-    ytitle("Convergence for 20-Year Windows at Annual Rate") ///
-    legend(order(1 "Coef Constrained States" 2 "Coef Unconstrained States") ///
-    ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
-    subtitle("Split by Saiz Housing Supply Elasticity") graphregion(fcolor(white)) ///
-    saving($work/nomConvergeSplit.gph, replace) nodraw;
-
-
-#delimit;
-gr combine $work/incWest1960.gph $work/incWest2010.gph 
-$work/nomConvergeSplitRegs.gph $work/nomConvergeSplit.gph, graphregion(fcolor(white)) iscale(*0.8);
-graph export $out/incWest.eps, replace;
-#delimit cr;
-
-foreach name in incWest1960 incWest2010 nomConvergeSplitRegs nomConvergeSplit {
-	gr use $work/`name'.gph
-	gr export $out/`name'.eps, replace
-}
-
 preserve
 * Extract coefficients as local macros/ store the coefficients.
 mat coef8 = coef[1..., 8]
@@ -368,9 +336,41 @@ replace year_coef = . if year_coef > 2010
 * Keep only the observations for years from 1960 to 2012
 keep if year_coef >= 1960 & year <= 2012
 
+* Scatter Plot 1: Convergence of Coefficients by Regulation Level
+scatter coef8 year_coef if year_coef >= 1960 , mcolor(maroon)  m(D) ///
+    || scatter coef7 year_coef if year_coef >= 1960 & year <= 2010, mcolor(edkblue) ///
+    xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
+    ytitle("Convergence for 20-Year Windows at Annual Rate") ///
+    legend(order(1 "Coef High Reg States" 2 "Coef Low Reg States") ///
+    ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
+    subtitle("Split by Land Use Instrument") graphregion(fcolor(white)) ///
+    saving($work/nomConvergeSplitRegs.gph, replace)  nodraw
+
+* Scatter Plot 2: Convergence of Coefficients by Housing Supply Elasticity
+scatter coef5 year_coef if year_coef >= 1950, mcolor(maroon)  m(D) ///
+    || scatter coef4 year_coef if year_coef >= 1950, mcolor(edkblue) ///
+    xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
+    ytitle("Convergence for 20-Year Windows at Annual Rate") ///
+    legend(order(1 "Coef Constrained States" 2 "Coef Unconstrained States") ///
+    ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
+    subtitle("Split by Saiz Housing Supply Elasticity") graphregion(fcolor(white)) ///
+    saving($work/nomConvergeSplit.gph, replace) nodraw
+
 keep coef4 coef5 coef7 coef8 year_coef year 
 outsheet using $out/Split_by_Land_Use_&_Saiz_Figure_7.csv, comma replace
 restore
+
+#delimit;
+gr combine $work/incWest1960.gph $work/incWest2010.gph 
+$work/nomConvergeSplitRegs.gph $work/nomConvergeSplit.gph, graphregion(fcolor(white)) iscale(*0.8);
+graph export $out/incWest.eps, replace;
+#delimit cr;
+
+foreach name in incWest1960 incWest2010 nomConvergeSplitRegs nomConvergeSplit {
+	gr use $work/`name'.gph
+	gr export $out/`name'.eps, replace
+}
+
 
 preserve
 keep dliInc lagliInc year sid
