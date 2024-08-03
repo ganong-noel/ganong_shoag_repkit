@@ -172,7 +172,7 @@ legend(off) saving($work/Aip.gph, replace) nodraw;
 #delimit cr;
 
 preserve
-keep WRLURI roll2005t year roll75t planner 
+keep WRLURI roll2005t year planner luPcCum statea
 outsheet using $out/Land_Use_Cases_vs_1975&2005_Figure_6.csv, comma replace
 restore
 
@@ -217,8 +217,8 @@ subtitle(Regulations Capitalize Incomes into Prices)
 saving($work/FirstStage.gph, replace) nodraw;
 #delimit cr;
 
-keep lvalueResid resid lowE 
-outsheet using $out/Regulations_Capitalize_Incomes_into_Prices_Figure_6.csv, comma replace
+keep lvalueResid resid lowE
+outsheet using 	$out/Regulations_Capitalize_Incomes_into_Prices_Figure_6.csv, comma replace
 restore
 
 
@@ -373,6 +373,6 @@ foreach name in incWest1960 incWest2010 nomConvergeSplitRegs nomConvergeSplit {
 
 
 preserve
-keep dliInc lagliInc year sid
+keep dliInc lagliInc year sid highReg stateabbrev
 outsheet using $out/Income_Convergence_1940-1960_&_1980-2000_Figure_7.csv, comma replace
 restore

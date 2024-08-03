@@ -65,7 +65,7 @@ graph save  $work/realUnskill1940.gph, replace;
 #delimit cr;
 
 preserve 
-keep netMig lr skill basePop lincShared netMig
+keep netMig lr skill basePop lincShared netMig basePop statefip
 outsheet using $out/Net_Migration_Flows_by_Skill_Group_Figure_4.csv, comma replace 
 restore
 
@@ -142,7 +142,7 @@ graph save  $work/realUnskill2000.gph, replace;
 #delimit cr;
 
 preserve
-keep netMig lr skill basePop lincShared
+keep netMig lr skill basePop lincShared statefip
 outsheet using $out/Net_Migration_Flows_by_Skill_Group_Figure_5.csv, comma replace
 restore
 

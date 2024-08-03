@@ -8,8 +8,6 @@ This repository contains the replication code for the paper "Why Has Regional In
 
 ## Note
 This repository contains various files related to the Ganong Shoag Repkit project. Please note that some of these files are managed using Git LFS. These datasets are tracked using Git LFS (Large File Storage). Git LFS helps manage large files more efficiently, keeping the repository size manageable while still providing access to the necessary data.
-
-**Using Datasets Tracked with Git LFS**
  
 Here's how you can properly clone the repository and work with the datasets:
 
@@ -22,48 +20,15 @@ Here's how you can properly clone the repository and work with the datasets:
 
    Replace `<repository-url>` with the actual URL of the repository.
 
-2. **Install Git LFS**:
-   Make sure you have Git LFS installed on your system. If not, you can download and install it from the [Git LFS website](https://git-lfs.com/).
 
-3. **Navigate to the Repository Directory**:
-   After cloning the repository, navigate to the repository directory using the terminal:
+## [src_data](https://www.dropbox.com/sh/021z1nvxym2fmv1/AAA2Xz7UGdZ8CBEpihnbIyJPa?dl=0)
+2. **Download this dropbox** 
+Make sure the dropbox is in the repo. You might need to unzip the folder.
 
-   ```
-   cd project-name
-   ```
+ 3. **Create a folder in the repo titled "work_final"**
 
-   Replace `project-name` with the name of your project directory.
+ 4. **Update the path.do file to match your local directory structure**
 
-4. **Fetch Large Files**:
-   Run the following command to fetch the actual content of the large files tracked by Git LFS:
-
-   ```
-   git lfs pull
-   ```
-
-   This command downloads the content of the large files from the Git LFS server.
-
-5. **Checkout the Files**:
-   The large files are represented in the repository as pointers. To replace the pointers with the actual content, use the following command:
-
-   ```sh
-   git lfs checkout
-   ```
-
-   This command replaces the pointers with the actual data in your working directory. It downloads and fills in the real data into your working directory, so you can use the large files as you normally would.
-
-6. **Work with Datasets**:
-   You can now work with the datasets. The large files should be available in their respective directories.
-
-
-
-## Files Managed with Git LFS
-
-The following files in this repository are managed using Git LFS to handle their large size efficiently:
-
-- `journalist`
-- `src_data`
-- `work_final`
 
 # ORDER OF RUNNING SCRIPTS
 
@@ -105,10 +70,13 @@ cap ssc inst _gwtmean
 
 `09_build/borjas1940robustness.do` processes and analyzes demographic and economic data for the year 1940
 
-`10_build/borjas2000.do` processes and analyzes data related to migration and income for the year 2000.
+`10_build/borjas2000.do` processes and analyzes data related to migration and income for the year 2000. Note: This code is a little slow. It takes a little less than 5 minutes to run.
 
-`11_build/borjas2000robustness.do` analyzes migration and household data for the year 2000, generating skill-specific income and migration statistics under various scenarios and populations.
+`11_build/borjas2000robustness.do` analyzes migration and household data for the year 2000, generating skill-specific income and migration statistics under various scenarios and populations. Note: This code is a little slow. It takes a little less than five minutes to run.
 
-`12_build/price_file_prep.do` calculates demographic characteristics, average household income, and skill-related variables for different years  by state and birth state. It also computes housing costs, scaled income, and generates instrument variables for further analysis.
+`12_build/price_file_prep.do` calculates demographic characteristics, average household income, and skill-related variables for different years  by state and birth state. It also computes housing costs, scaled income, and generates instrument variables for further analysis. Note: This code is slow. It takes more than five minutes to run.
 
 `13_analyze/mig_returns_and_flows.do` generates various figures in figure 3, 4, 5, and appendix tables 3, and 4 relating to migration and income data, including scatter plots, regression results, and data manipulation, for different years (1940, 2000, etc.), skills (skilled and unskilled), and demographics, and exports the results to various file formats
+
+***CSV files***
+For replication purposes, every figure has a csv file with a title format "name_of_plot_fig_XXX.csv" in the out_final folder. For plots in Figures 1, 2, 3, 4, and 5, coefficients need to be constructed first, so make sure to run the code that does this before plotting.

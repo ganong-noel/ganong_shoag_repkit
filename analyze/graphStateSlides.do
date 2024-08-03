@@ -106,8 +106,8 @@ restore
 **************;
 
 #delimit; 
-**local coef60 = substr(string(coef[14,1]),1,5);
-**local se60 = substr(string(se[14,1]),1,3);
+local coef60 = substr(string(coef[14,1]),1,5);
+local se60 = substr(string(se[14,1]),1,3);
 scatter dliInc lagliInc if year == 1960, mlabel(statea)  msymbol(i)
 || lfit dliInc lagliInc if year == 1960, lcolor(maroon) 
 ytitle("Annual Income Growth Rate, 1940-1960")
@@ -117,8 +117,8 @@ legend(off) ylabel(1 3 5, nogrid) xlabel(#3) $all
 saving($work/inc1960.gph, replace) nodraw;
 
 #delimit; 
-**local coef10 = substr(string(coef[64,1]),1,4);
-**local se10 = substr(string(se[64,1]),1,3);
+local coef10 = substr(string(coef[64,1]),1,4);
+local se10 = substr(string(se[64,1]),1,3);
 scatter dliInc lagliInc if year == 2010, mlabel(statea) msymbol(i)
 || lfit dliInc lagliInc if year == 2010, lcolor(purple) 
 ytitle("Annual Income Growth Rate, 1990-2010")
@@ -133,14 +133,14 @@ gr export $out/inc.eps, replace;
 #delimit cr
 
 preserve
-keep dliInc lagliInc year
+keep dlpop lagliInc year lvalue dliInc liInc statea saiz
 outsheet using $out/Convergence_1940-1960_&_1990-2010_Figure_1.csv, comma replace
 restore
 
 
 #delimit; 
-**local coef60 = substr(string(coef[14,2]),1,4);
-**local se60 = substr(string(se[14,2]),1,3);
+local coef60 = substr(string(coef[14,2]),1,4);
+local se60 = substr(string(se[14,2]),1,3);
 scatter dlpop lagliInc if year == 1960, mlabel(statea) msymbol(i)
 || lfit dlpop lagliInc if year == 1960,  lcolor(maroon) 
 ytitle("Annual Population Growth Rate, 1940-1960")
@@ -150,8 +150,8 @@ subtitle("Migration 1940-1960, Coef: `coef60' SE: `se60'")
  saving($work/pop1960.gph, replace) nodraw;
 
 #delimit; 
-**local coef10 = substr(string(coef[64,2]),1,4);
-**local se10 = substr(string(se[64,2]),1,3);
+local coef10 = substr(string(coef[64,2]),1,4);
+local se10 = substr(string(se[64,2]),1,3);
 scatter dlpop lagliInc if year == 2010, mlabel(statea) msymbol(i)
 || lfit dlpop lagliInc if year == 2010,  lcolor(purple) 
 ytitle("Annual Population Growth Rate, 1990-2010")
@@ -167,14 +167,14 @@ gr export $out/popYears.eps, replace;
 #delimit cr
 
 preserve
-keep dlpop lagliInc year
+keep dlpop lagliInc year lvalue dliInc liInc statea saiz     
 outsheet using $out/Migration_1940-1960_&_1990-2010_Figure_1.csv, comma replace
 restore
 
 
 #delimit; 
-**local coef60 = substr(string(coef[14,6]),1,3);
-**local se60 = substr(string(se[14,6]),1,3);
+local coef60 = substr(string(coef[14,6]),1,3);
+local se60 = substr(string(se[14,6]),1,3);
 scatter lvalue liInc if year == 1960, mlabel(statea) msymbol(i)
 || lfit lvalue liInc if year == 1960, lcolor(maroon) 
 ytitle("Log Housing Value, 1960", size(large))
@@ -200,7 +200,7 @@ gr export $out/price.eps, replace;
 #delimit cr 
 
 preserve
-keep lvalue liInc year
+keep lvalue liInc year statea dlpop lagliInc dliInc liInc
 outsheet using $out/Coef_&_SE_Figure_2.csv, comma replace
 restore
 
