@@ -23,11 +23,12 @@ Here's how you can properly clone the repository and work with the datasets:
 
 ## [src_data](https://www.dropbox.com/sh/021z1nvxym2fmv1/AAA2Xz7UGdZ8CBEpihnbIyJPa?dl=0)
 2. **Download this dropbox** 
-Make sure the dropbox is in the repo. You might need to unzip the folder.
+Make sure the dropbox is in the repo and unzip the folder.
 
- 3. **Create a folder in the repo titled "work_final"**
+3. **Update the path.do file to match your local directory structure**
 
- 4. **Update the path.do file to match your local directory structure**
+4. **Run the master.do file to replicate all the figures in one pass.**
+Each do file can be run separately, but running master.do is easier and less time consuming.
 
 
 # ORDER OF RUNNING SCRIPTS
@@ -79,4 +80,4 @@ cap ssc inst _gwtmean
 `13_analyze/mig_returns_and_flows.do` generates various figures in figure 3, 4, 5, and appendix tables 3, and 4 relating to migration and income data, including scatter plots, regression results, and data manipulation, for different years (1940, 2000, etc.), skills (skilled and unskilled), and demographics, and exports the results to various file formats
 
 ***CSV files***
-For replication purposes, every figure has a csv file with a title format "name_of_plot_fig_XXX.csv" in the out_final folder. For plots in Figures 1, 2, 3, 4, and 5, coefficients need to be constructed first, so make sure to run the code that does this before plotting.
+To replicate figures independently, every figure has a csv file with a title format "name_of_plot_fig_XXX.csv" in the out_final folder. For plots in Figures 1, 2, 3, 4, and 5, coefficients need to be constructed first, so make sure to run the code that does this before plotting. Stata automatically converts variable names to lowercase when importing a csv file. To change this, specify the case option by adding `, case(preserve)` in the import delimited command.
