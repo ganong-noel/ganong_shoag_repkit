@@ -21,16 +21,19 @@ Here's how you can properly clone the repository and work with the datasets:
 
 ## [src_data](https://www.dropbox.com/sh/021z1nvxym2fmv1/AAA2Xz7UGdZ8CBEpihnbIyJPa?dl=0)
 2. **Download this dropbox** 
-Unzip the src_data folder after downloading and make sure it is in the same parent directory as the cloned repository.
+After downloading, unzip the src_data folder and put it in the same parent directory as the cloned repository.
 
 3. **Update the path.do file to match your local directory structure**
 Change the username to your stata username and update the placeholders with the file paths on your local machine.
 
-if ("`c(username)'" == "stata username")`
-`global code = "/path/to/ganong_shoag_repkit"`
-`global src = "/path/to/src_data"`
-`global work = "/path/to/work_final"`
-`global out = "/path/to/out_final"`
+```stata
+if ("`c(username)'" == "stata username")  {
+global code = "/path/to/ganong_shoag_repkit"
+global src = "/path/to/src_data"
+global work = "/path/to/work_final"
+global out = "/path/to/out_final"
+}
+```
 
 4. **Run the master.do file to replicate all the figures in one pass.**
 Each do file can be run separately, but running master.do is easier and less time consuming.
