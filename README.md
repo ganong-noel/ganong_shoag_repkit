@@ -6,9 +6,7 @@ For questions and feedback, contact: ganong@uchicago.edu.
 
 This repository contains the replication code for the paper "Why Has Regional Income Convergence in the U.S. Declined?" by Peter Ganong and Daniel W. Shoag (2017). The code is structured to reproduce the figures and tables presented in the paper.
 
-## Note
-This repository contains various files related to the Ganong Shoag Repkit project. Please note that some of these files are managed using Git LFS. These datasets are tracked using Git LFS (Large File Storage). Git LFS helps manage large files more efficiently, keeping the repository size manageable while still providing access to the necessary data.
- 
+
 Here's how you can properly clone the repository and work with the datasets:
 
 1. **Clone the Repository**:
@@ -23,9 +21,16 @@ Here's how you can properly clone the repository and work with the datasets:
 
 ## [src_data](https://www.dropbox.com/sh/021z1nvxym2fmv1/AAA2Xz7UGdZ8CBEpihnbIyJPa?dl=0)
 2. **Download this dropbox** 
-Make sure the dropbox is in the repo and unzip the folder.
+Unzip the src_data folder after downloading and make sure it is in the same parent directory as the cloned repository.
 
 3. **Update the path.do file to match your local directory structure**
+Change the username to your stata username and update the placeholders with the file paths on your local machine.
+
+if ("`c(username)'" == "stata username")`
+`global code = "/path/to/ganong_shoag_repkit"`
+`global src = "/path/to/src_data"`
+`global work = "/path/to/work_final"`
+`global out = "/path/to/out_final"`
 
 4. **Run the master.do file to replicate all the figures in one pass.**
 Each do file can be run separately, but running master.do is easier and less time consuming.
