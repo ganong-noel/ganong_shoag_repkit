@@ -1,8 +1,7 @@
 
-if ("`c(username)'" == "philipsametsikor") {
-	global code = "~/repo/convergence"
-	global src = "~/repo/convergence/src_data"
-	global work = "~/repo/convergence/work_final"
-	global out = "~/repo/convergence/out_final"
+if ("`c(username)'" == "stata username") {
+	global code = "/path/to/ganong_shoag_repkit"
+	global src = "/path/to/src_data"
+	global work = "~/ganong_shoag_repkit/work_final"
+	global out = "~/ganong_shoag_repkit/out_final"
 }
-

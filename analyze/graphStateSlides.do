@@ -73,7 +73,6 @@ saving($work/nomConvergePop.gph, replace) ;
 gr export $out/nomConvergePop.eps, replace ;
 
 
-
 ***Price graphs***;
 scatter coef6 year , mcolor(edkblue) c(l) ||
 scatter coef6 year if year == 1960, mcolor(maroon) msize(huge) ||
@@ -84,14 +83,27 @@ legend(off) ylabel(1 1.5 2) $all
 saving($work/priceCoef.gph, replace) ;
 gr export $out/priceCoef.eps, replace ;
 
+#delimit cr
 
-restore;
+mat coef1 = coef[1..., 1]
+mat coef2 = coef[1..., 2]
+mat coef6 = coef[1..., 6]
+
+*Combine the extracted columns into a new matrix and convert the matrix into a dataset
+matrix f_coef = coef1, coef2, coef6
+svmat f_coef, names(colnames)
+
+
+keep coef1 coef2 coef6 year
+outsheet using $out/Convergence_and_Directed_Migration_Rates_Over_Time_Figure_1.csv, comma replace
+outsheet using $out/Timeseries_of_Coefs_Figure_2.csv, comma replace,
+
+restore
+
 
 **************
 *CONSTRUCT SINGLE-YEAR GRAPHS
 **************;
-
-
 
 #delimit; 
 local coef60 = substr(string(coef[14,1]),1,5);
@@ -118,6 +130,12 @@ ysc(r(0 4)) xlabel(10 10.4 10.8, nogrid ) ylabel(#3 )
 #delimit;
 gr combine $work/inc1960.gph $work/inc2010.gph, $allCombine xsize(5.5) ysize(3.5);
 gr export $out/inc.eps, replace;
+#delimit cr
+
+preserve
+keep dlpop lagliInc year lvalue dliInc liInc statea saiz
+outsheet using $out/Convergence_1940-1960_&_1990-2010_Figure_1.csv, comma replace
+restore
 
 
 #delimit; 
@@ -146,7 +164,12 @@ saving($work/pop2010.gph, replace) nodraw;
 #delimit;
 gr combine $work/pop1960.gph $work/pop2010.gph,  $allCombine xsize(5.5) ysize(3.5);
 gr export $out/popYears.eps, replace;
+#delimit cr
 
+preserve
+keep dlpop lagliInc year lvalue dliInc liInc statea saiz     
+outsheet using $out/Migration_1940-1960_&_1990-2010_Figure_1.csv, comma replace
+restore
 
 
 #delimit; 
@@ -174,7 +197,12 @@ saving($work/price2010.gph, replace) nodraw;
 #delimit;
 gr combine $work/price1960.gph $work/price2010.gph,  $allCombine xsize(5.5) ysize(3.5);
 gr export $out/price.eps, replace;
+#delimit cr 
 
+preserve
+keep lvalue liInc year statea dlpop lagliInc dliInc liInc
+outsheet using $out/Coef_&_SE_Figure_2.csv, comma replace
+restore
 
 
 

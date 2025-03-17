@@ -1,3 +1,4 @@
+version 13
 ssc install outreg2
 use $work/state, clear
  keep if year >= 1940
@@ -61,7 +62,6 @@ outreg2 liInc interactUBinFive using "$out/regXsec.txt",  append dec(2) excel
 qui xi: areg dliInc i.year*UBinFive liInc liIncPost interactUBinFive interactUBinFivepost ,a(year) cl(lma)
 test interactUBinFivepost
 restore
-
 
 
 ***********************
@@ -136,8 +136,10 @@ ring(0) pos(11) region(lstyle(none)) cols(1))
 subtitle("Land Use Cases Per Million People") xlabel(1940(10)2010) 
 saving($work/timeseries.gph, replace) nodraw;
 #delimit cr;
-restore
 
+keep LUpc year pop docLu
+outsheet using $out/Land_Use_Cases_Per_Million_People_Figure_6.csv, comma replace 
+restore
 
 
 **********************************************
@@ -169,6 +171,10 @@ subtitle("Land Use Cases vs 1975 Survey, Coef: `b' SE: `se'")
 legend(off) saving($work/Aip.gph, replace) nodraw;
 #delimit cr;
 
+preserve
+keep WRLURI roll2005t year planner luPcCum statea
+outsheet using $out/Land_Use_Cases_vs_1975&2005_Figure_6.csv, comma replace
+restore
 
 ***************************
 ****GRAPH THE FIRST STAGE****
@@ -210,6 +216,9 @@ ring(0) pos(11) cols(1) region(lstyle(none))) ylabel(11(0.5)12)
 subtitle(Regulations Capitalize Incomes into Prices)
 saving($work/FirstStage.gph, replace) nodraw;
 #delimit cr;
+
+keep lvalueResid resid lowE
+outsheet using 	$out/Regulations_Capitalize_Incomes_into_Prices_Figure_6.csv, comma replace
 restore
 
 
@@ -275,6 +284,7 @@ legend(order(3 "Low Reg" 4 "High Reg") ring(0) pos(11) region(lstyle(none)) cols
 xtitle("Log Income Per Cap, 1980", size(large)) graphregion(fcolor(white))
 saving($work/incWest2010.gph, replace) nodraw;
 
+#delimit cr;
 
 **************
 *CONSTRUCT ROLLING COEFS AND SIGMA CONVERGENCE
@@ -304,28 +314,51 @@ local coef7 coef[*, 7]
 local coef5 coef[*, 5]
 local coef4 coef[*, 4]
 
+preserve
+* Extract coefficients as local macros/ store the coefficients.
+mat coef8 = coef[1..., 8]
+mat coef7 = coef[1..., 7]
+mat coef5 = coef[1..., 5]
+mat coef4 = coef[1..., 4]
+
+*Combine the extracted columns into a new matrix and convert the matrix into a dataset
+matrix final_coef = coef8, coef7, coef5, coef4
+svmat final_coef, names(colnames)
+rename colnames1 coef8
+rename colnames2 coef7
+rename colnames3 coef5
+rename colnames4 coef4
+
+* Create a new variable for year to match the rows
+gen year_coef = 1960 + _n - 1
+replace year_coef = . if year_coef > 2010
+
+* Keep only the observations for years from 1960 to 2012
+keep if year_coef >= 1960 & year <= 2012
+
 * Scatter Plot 1: Convergence of Coefficients by Regulation Level
-scatter `coef8' year if year >= 1960 , mcolor(maroon)  m(D) ///
-    || scatter `coef7' year if year >= 1960 & year <= 2010, mcolor(edkblue) ///
+scatter coef8 year_coef if year_coef >= 1960 , mcolor(maroon)  m(D) ///
+    || scatter coef7 year_coef if year_coef >= 1960 & year <= 2010, mcolor(edkblue) ///
     xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
     ytitle("Convergence for 20-Year Windows at Annual Rate") ///
     legend(order(1 "Coef High Reg States" 2 "Coef Low Reg States") ///
     ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
     subtitle("Split by Land Use Instrument") graphregion(fcolor(white)) ///
-    saving("$out/nomConvergeSplitRegs.gph", replace)  nodraw;
+    saving($work/nomConvergeSplitRegs.gph, replace)  nodraw
 
 * Scatter Plot 2: Convergence of Coefficients by Housing Supply Elasticity
-scatter `coef5' year if year >= 1950, mcolor(maroon)  m(D) ///
-    || scatter `coef4' year if year >= 1950, mcolor(edkblue) ///
+scatter coef5 year_coef if year_coef >= 1950, mcolor(maroon)  m(D) ///
+    || scatter coef4 year_coef if year_coef >= 1950, mcolor(edkblue) ///
     xlabel(1960(10)2010, ) xtitle(" ") ylabel(,nogrid) ///
     ytitle("Convergence for 20-Year Windows at Annual Rate") ///
     legend(order(1 "Coef Constrained States" 2 "Coef Unconstrained States") ///
     ring(0) pos(11) rows(2) region(lstyle(none)) size(small)) ///
     subtitle("Split by Saiz Housing Supply Elasticity") graphregion(fcolor(white)) ///
-    saving("$out/nomConvergeSplit.gph", replace) nodraw;
+    saving($work/nomConvergeSplit.gph, replace) nodraw
 
-
-
+keep coef4 coef5 coef7 coef8 year_coef year 
+outsheet using $out/Split_by_Land_Use_&_Saiz_Figure_7.csv, comma replace
+restore
 
 #delimit;
 gr combine $work/incWest1960.gph $work/incWest2010.gph 
@@ -338,3 +371,8 @@ foreach name in incWest1960 incWest2010 nomConvergeSplitRegs nomConvergeSplit {
 	gr export $out/`name'.eps, replace
 }
 
+
+preserve
+keep dliInc lagliInc year sid highReg stateabbrev
+outsheet using $out/Income_Convergence_1940-1960_&_1980-2000_Figure_7.csv, comma replace
+restore
