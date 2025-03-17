@@ -6,7 +6,6 @@ For questions and feedback, contact: ganong@uchicago.edu.
 
 This repository contains the replication code for the paper "Why Has Regional Income Convergence in the U.S. Declined?" by Peter Ganong and Daniel W. Shoag (2017). The code is structured to reproduce the figures and tables presented in the paper.
 
-
 Here's how you can properly clone the repository and work with the datasets:
 
 1. **Clone the Repository**:
